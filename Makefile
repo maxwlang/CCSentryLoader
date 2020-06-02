@@ -1,10 +1,15 @@
-ARCHS = arm64 arm64e
-TARGET = iphone:latest:8.0
-
 include $(THEOS)/makefiles/common.mk
+
+export TARGET = iphone:clang:11.2:11.0
+export ARCHS = arm64
+
 
 TWEAK_NAME = CCSentryLoader
 CCSentryLoader_FILES = Tweak.xm
+CCSentryLoader_CFLAGS += -F./Frameworks
+CCSentryLoader_LDFLAGS += -F./Frameworks -framework Sentry
+CCSentryLoader_LDFLAGS += -rpath @loader_path/
+CCSentryLoader_FRAMEWORKS = Sentry
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 

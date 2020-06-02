@@ -7,3 +7,4 @@ obj
 *.app
 *.ipa
 Sentry.framework
+./Frameworks
