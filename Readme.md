@@ -1,37 +1,37 @@
-## CCRevealLoader Tweak 
+## CCSentryLoader Tweak 
 
-CCRevealLoader is inspired by [RevealLoader](https://github.com/heardrwt/RevealLoader)
+CCSentryLoader is forked from [CCRevealLoader](https://github.com/webfrogs/CCRevealLoader) which is inspired by [RevealLoader](https://github.com/heardrwt/RevealLoader)
 
-CCRevealLoader dynamically loads RevealServer.framework  (Reveal.app support) into iOS apps on jailbroken devices. Configuration is via the CCRevealLoader menu in Settings.app
+CCSentryLoader dynamically loads Sentry.framework (Sentry.io error handler) into iOS apps on jailbroken devices. Configuration is via the CCSentryLoader menu in Settings.app
 
-Reveal is an OS X application that allows you to remotely introspect a running applications view hierarchy and edit various view properties. 
+Sentry is a nice error handling software that lets you categorize, manage and gather information on errors in development and production environments.
 
-Generally you have to include their debugging framework in your application at build time in-order to perform debugging actions, however with this tweak installed this is no longer necessary. 
+Generally you have to include their framework in your application at build time in-order to handle errors, however with this tweak installed this is no longer necessary. 
 
-For more info see [revealapp.com](http://revealapp.com)
+For more info see [sentry.io](https://sentry.io)
 
 
 ## Build Requirements
 
 - Theos
-- Reveal.app installed
 
 ## Install tweak
 
-Change the value of `THEOS_DEVICE_IP` to your jailbreak device's ip in the `Makefile` file at first line, then execute command:
+Execute command:
 
 ```
-make package install
+make package
 ```
 
 **Note:** To make sure this tweak work correctly. Before install this tweak, change the command `codesign` in the `before-package` section of `Makefile`,use your develop certificate. If you dont have a certificate, you can remove the three command lines which begin with `lipo` and `codesign`.
 
 ## How to Use
-Open 'Settings > CCRevealLoader > Enabled Applications' and toggle the application or applications that you want to debug to on.
+Open 'Settings > CCSentryLoader > Enabled Applications' and toggle the application or applications that you want to catch errors for and configure your project key and ID.
 
-Launch the target application and it should appear inside Reveal.app on your Mac. 
+Launch the target application and errors should appear in Sentry once they've occured. 
 
 (You will likely need to quit and relaunch the target application)
 
 ## Be Social
-Follow me on [Twitter](https://twitter.com/intent/follow?screen_name=nswebfrog) (@nswebfrog)
+Follow me on [Twitter](https://twitter.com/intent/follow?screen_name=nswebfrog) (@maxwlang) (This fork)
+Follow the creator of CCRevealLoader on [Twitter](https://twitter.com/intent/follow?screen_name=nswebfrog) (@nswebfrog) (CCRevealLoader)
